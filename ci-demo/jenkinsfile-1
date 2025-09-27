@@ -1,0 +1,46 @@
+CI-Demo_Pipeline {
+    agent any
+
+    tools {
+        jdk 'JDK-21'         // El nombre que configuraste en Jenkins
+        maven 'Maven-3.9.11' // El nombre que configuraste en Jenkins
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/dvelasquezz2-hub/ci-demo.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                bat 'mvn clean compile'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                bat 'mvn test'
+            }
+        }
+
+        stage('Package') {
+            steps {
+                bat 'mvn package'
+            }
+        }
+    }
+
+    post {
+        always {
+            junit '**/target/surefire-reports/*.xml'
+        }
+        success {
+            echo '¡Build y pruebas exitosas!'
+        }
+        failure {
+            echo 'Algo salió mal en el build.'
+        }
+    }
+}
