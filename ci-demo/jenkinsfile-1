@@ -9,19 +9,25 @@ pipeline {
     stages{
         stage('Build') {
             steps {
-                bat 'mvn clean compile'
+                dir('ci-demo') {
+                    bat 'mvn clean compile'
+                }
             }
         }
 
         stage('Test') {
             steps {
-                bat 'mvn test'
+                dir('ci-demo') {
+                    bat 'mvn test'
+                }
             }
         }
 
         stage('Package') {
             steps {
-                bat 'mvn package'
+                dir('ci-demo') {
+                    bat 'mvn package'
+                }
             }
         }
     }
@@ -38,6 +44,7 @@ pipeline {
         }
     }
 }
+
 
 
 
