@@ -1,4 +1,4 @@
-CI-Demo_Pipeline {
+Pipeline {
     agent any
 
     tools {
@@ -37,6 +37,7 @@ CI-Demo_Pipeline {
             echo 'Algo salió mal en el build.'
         }
     }
+
 
 
 
