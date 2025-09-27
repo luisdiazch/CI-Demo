@@ -6,13 +6,7 @@ CI-Demo_Pipeline {
         maven 'Maven-3.9.11' // El nombre que configuraste en Jenkins
     }
 
-    stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/luisdiazch/CI-Demo.git'
-            }
-        }
-
+    
         stage('Build') {
             steps {
                 bat 'mvn clean compile'
@@ -44,4 +38,5 @@ CI-Demo_Pipeline {
         }
     }
 }
+
 
