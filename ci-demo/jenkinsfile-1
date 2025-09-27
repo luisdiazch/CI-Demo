@@ -9,7 +9,7 @@ CI-Demo_Pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/dvelasquezz2-hub/ci-demo.git'
+                git branch: 'main', url: 'https://github.com/luisdiazch/CI-Demo.git'
             }
         }
 
@@ -44,3 +44,4 @@ CI-Demo_Pipeline {
         }
     }
 }
+
