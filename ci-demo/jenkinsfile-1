@@ -6,7 +6,7 @@ pipeline {
         maven 'Maven-3.9.11' // El nombre que configuraste en Jenkins
     }
 
-    
+    stages{
         stage('Build') {
             steps {
                 bat 'mvn clean compile'
@@ -37,6 +37,7 @@ pipeline {
             echo 'Algo salió mal en el build.'
         }
     }
+}
 
 
 
