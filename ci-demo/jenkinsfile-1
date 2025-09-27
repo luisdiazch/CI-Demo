@@ -7,6 +7,12 @@ pipeline {
     }
 
     stages{
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/luisdiazch/CI-Demo.git'
+            }
+        }
+
         stage('Build') {
             steps {
                 dir('ci-demo') {
@@ -44,6 +50,7 @@ pipeline {
         }
     }
 }
+
 
 
 
